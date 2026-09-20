@@ -1,22 +1,13 @@
+
 import { test } from '@playwright/test'
-test('loginPage And RegisterUser ', async ({ page }) => {
-
+import { LoginPage } from '../page/LoginPage'
+test('loginPage ', async ({ page }) => {
     await page.goto('https://demowebshop.tricentis.com/')
-    await page.getByRole('link', { name: 'Register' }).click()
-    await page.getByRole('radio', { name: 'Male', exact: true }).click()
-    await page.getByRole('radio', { name: 'Female', exact: true }).click()
-    //await page.getByText('Male').nth(0).click()
-    // await page.getByRole('radio',{name:'Female'}).nth(1).click()
-    //await page.getByText('Female').nth(0).click()
-    //await page.getByText('Male', { exact: true }).click()
-    //await page.getByText('Female', { exact: true }).click()
-    await page.getByRole('textbox',{name:'First name'}).fill('P')
-    await page.getByRole('textbox',{name:'Last name'}).fill('P')
-    await page.getByRole('textbox',{name:'Email'}).fill('pp@gmail.com')
-    await page.getByRole('textbox',{name:'Password:',exact: true}).fill('Peter@08')
-    await page.getByRole('textbox',{name:'Confirm password:',exact: true}).fill('Peter@08')
-
-
-
+    const loginPage = new LoginPage(page)
+    await loginPage.clickloginLink()
+    await loginPage.enterEmail('pp@gmail.com')
+    await loginPage.enterPassword('Peter@08')
+    await loginPage.selectRemeberMe()
+    await loginPage.clickOnLoginButton()
 
 })
