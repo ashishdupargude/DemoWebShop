@@ -1,11 +1,11 @@
-import {expect,test} from '@playwright/test'
+import { expect, test } from '@playwright/test'
 import { LoginPage } from '../page/LoginPage'
 import { ProductPage } from '../page/ProductPage'
 
-test('Add book to cart', async ({page}) =>{
-await page.goto('https://demowebshop.tricentis.com/')
+test('Add book to cart', async ({ page }) => {
+    await page.goto('https://demowebshop.tricentis.com/')
 
- // Login
+    // Login
     const loginPage = new LoginPage(page)
     await loginPage.clickloginLink()
     await loginPage.enterEmail('ashish.demotest2026@gmail.com')
@@ -16,6 +16,8 @@ await page.goto('https://demowebshop.tricentis.com/')
 
     const productPage = new ProductPage(page)
     await productPage.clickonBookslink()
-    
+    await productPage.clickonBook()
+    await productPage.clickAddToCart()
+    await productPage.clickOnShoppingCart()
 
 })
