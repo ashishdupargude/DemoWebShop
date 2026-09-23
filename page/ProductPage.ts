@@ -5,7 +5,10 @@ export class ProductPage {
     readonly Bookstab: Locator
     readonly Selectbook: Locator
     readonly Addtocart: Locator
-    readonly Selectshopingcart :Locator
+    readonly Selectshopingcart: Locator
+    readonly CountryDropDowm: Locator
+    readonly SelectCheckBox: Locator
+    readonly CheckoutButton :  Locator
 
 
 
@@ -18,6 +21,11 @@ export class ProductPage {
         this.Selectbook = page.getByRole('link', { name: 'Computing and Internet', exact: true })
         this.Addtocart = page.locator('.button-1.add-to-cart-button')
         this.Selectshopingcart = page.locator('.ico-cart').nth(0)
+        this.CountryDropDowm = page.getByLabel('Country')
+        this.SelectCheckBox = page.locator('#termsofservice').nth(0)
+        this.CheckoutButton = page.locator('.button-1.checkout-button')
+
+
 
     }
 
@@ -28,12 +36,23 @@ export class ProductPage {
         await this.Selectbook.click()
 
     }
-    async clickAddToCart(){
+    async clickAddToCart() {
         await this.Addtocart.click()
 
     }
-    async clickOnShoppingCart(){
+    async clickOnShoppingCart() {
         await this.Selectshopingcart.click()
+
+    }
+    async selectCountry() {
+        await this.CountryDropDowm.selectOption({ label: 'India' })
+    }
+    async clickOnCheckBox() {
+        await this.SelectCheckBox.check()
+
+    }
+    async clickOnCheckOutButton(){
+        await this.CheckoutButton.click()
         
     }
 }

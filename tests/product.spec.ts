@@ -19,5 +19,13 @@ test('Add book to cart', async ({ page }) => {
     await productPage.clickonBook()
     await productPage.clickAddToCart()
     await productPage.clickOnShoppingCart()
+    await productPage.selectCountry()
+    await productPage.clickOnCheckBox()
+    await productPage.clickOnCheckOutButton()
+    await expect (page.getByRole('heading',{name:'Checkout'})).toBeVisible()
+    await expect(page).toHaveURL(/onepagecheckout/)
+
+
+
 
 })
