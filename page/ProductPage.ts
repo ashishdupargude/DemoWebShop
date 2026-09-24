@@ -9,6 +9,8 @@ export class ProductPage {
     readonly CountryDropDowm: Locator
     readonly SelectCheckBox: Locator
     readonly CheckoutButton :  Locator
+    readonly Continue : Locator
+
 
 
 
@@ -24,6 +26,7 @@ export class ProductPage {
         this.CountryDropDowm = page.getByLabel('Country')
         this.SelectCheckBox = page.locator('#termsofservice').nth(0)
         this.CheckoutButton = page.locator('.button-1.checkout-button')
+        this.Continue = page.getByRole('button',{name:'Continue',exact: true})
 
 
 
@@ -53,6 +56,8 @@ export class ProductPage {
     }
     async clickOnCheckOutButton(){
         await this.CheckoutButton.click()
-        
+    }
+    async clickOnContinue(){
+        await this.Continue.click()
     }
 }

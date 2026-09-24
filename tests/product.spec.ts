@@ -25,6 +25,9 @@ test('Add book to cart', async ({ page }) => {
     await expect (page.getByRole('heading',{name:'Checkout'})).toBeVisible()
     await expect(page).toHaveURL(/onepagecheckout/)
 
+    //CheckOutpage
+    await productPage.clickOnContinue()
+
 
 
 
