@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","15471","RegisterUser","chromium","2026-09-24","passed","2026-09-24","","register.spec.ts","",""
+"","13560","Add book to cart","chromium","2026-09-24","passed","2026-09-24","","product.spec.ts","",""
+"","8563","loginPage","chromium","2026-09-24","passed","2026-09-24","","login.spec.ts","",""
