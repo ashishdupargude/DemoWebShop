@@ -22,12 +22,14 @@ test('Add book to cart', async ({ page }) => {
     await productPage.selectCountry()
     await productPage.clickOnCheckBox()
     await productPage.clickOnCheckOutButton()
-    await expect (page.getByRole('heading',{name:'Checkout'})).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Checkout' })).toBeVisible()
     await expect(page).toHaveURL(/onepagecheckout/)
 
     //CheckOutpage
     await productPage.clickOnContinue()
-
+    await productPage.ClickInStorePickup()
+    await productPage.ContinueButtonNew()
+    //await productPage.ContinueButtonNew()
 
 
 

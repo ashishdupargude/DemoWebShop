@@ -8,8 +8,10 @@ export class ProductPage {
     readonly Selectshopingcart: Locator
     readonly CountryDropDowm: Locator
     readonly SelectCheckBox: Locator
-    readonly CheckoutButton :  Locator
-    readonly Continue : Locator
+    readonly CheckoutButton: Locator
+    readonly Continue: Locator
+    readonly InStorePickup: Locator
+    readonly ContinueButton: Locator
 
 
 
@@ -26,7 +28,15 @@ export class ProductPage {
         this.CountryDropDowm = page.getByLabel('Country')
         this.SelectCheckBox = page.locator('#termsofservice').nth(0)
         this.CheckoutButton = page.locator('.button-1.checkout-button')
-        this.Continue = page.getByRole('button',{name:'Continue',exact: true})
+        this.Continue = page.getByRole('button', { name: 'Continue', exact: true })
+        this.InStorePickup = page.getByRole('checkbox', { name: 'In-Store Pickup', exact: true })
+         this.ContinueButton = page.getByRole('button', { name: 'Continue', exact: true })
+
+        // this.ContinueButton = page
+        //     .getByRole('listitem')
+        //     .filter({ has: page.getByRole('heading', { name: 'Payment method' }) })
+        //     .getByRole('button', { name: 'Continue', exact: true })
+
 
 
 
@@ -54,10 +64,20 @@ export class ProductPage {
         await this.SelectCheckBox.check()
 
     }
-    async clickOnCheckOutButton(){
+    async clickOnCheckOutButton() {
         await this.CheckoutButton.click()
     }
-    async clickOnContinue(){
+    async clickOnContinue() {
         await this.Continue.click()
     }
+    async ClickInStorePickup() {
+        await this.InStorePickup.check()
+
+    }
+    async ContinueButtonNew() {
+        await this.ContinueButton.click()
+    }
+
+
+
 }
