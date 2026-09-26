@@ -9,9 +9,13 @@ export class ProductPage {
     readonly CountryDropDowm: Locator
     readonly SelectCheckBox: Locator
     readonly CheckoutButton: Locator
-    readonly Continue: Locator
+    readonly BillingContinue: Locator
     readonly InStorePickup: Locator
-    readonly ContinueButton: Locator
+    readonly ShippingContinue: Locator
+    readonly PaymentContinue: Locator
+    readonly PaymentInfoContinue: Locator
+    readonly ConfirmOrderContinue: Locator
+    readonly ThanksContinue: Locator
 
 
 
@@ -28,9 +32,14 @@ export class ProductPage {
         this.CountryDropDowm = page.getByLabel('Country')
         this.SelectCheckBox = page.locator('#termsofservice').nth(0)
         this.CheckoutButton = page.locator('.button-1.checkout-button')
-        this.Continue = page.getByRole('button', { name: 'Continue', exact: true })
+        this.BillingContinue = page.getByRole('button', { name: 'Continue', exact: true })
         this.InStorePickup = page.getByRole('checkbox', { name: 'In-Store Pickup', exact: true })
-         this.ContinueButton = page.getByRole('button', { name: 'Continue', exact: true })
+        this.ShippingContinue = page.getByRole('button', { name: 'Continue', exact: true })
+        this.PaymentContinue = page.locator('.button-1.payment-method-next-step-button')
+        this.PaymentInfoContinue = page.locator('.button-1.payment-info-next-step-button')
+        this.ConfirmOrderContinue = page.locator('.button-1.confirm-order-next-step-button')
+        this.ThanksContinue = page.locator('.button-2.order-completed-continue-button')
+
 
         // this.ContinueButton = page
         //     .getByRole('listitem')
@@ -67,15 +76,30 @@ export class ProductPage {
     async clickOnCheckOutButton() {
         await this.CheckoutButton.click()
     }
-    async clickOnContinue() {
-        await this.Continue.click()
+    async BillingContinueButton() {
+        await this.BillingContinue.click()
     }
     async ClickInStorePickup() {
         await this.InStorePickup.check()
 
     }
-    async ContinueButtonNew() {
-        await this.ContinueButton.click()
+    async ShippingContinueButtonNew() {
+        await this.ShippingContinue.click()
+    }
+    async PaymentContinueButton() {
+        await this.PaymentContinue.click()
+    }
+    async PaymentContinueInfoButton(){
+        
+        await this.PaymentInfoContinue.click()
+    }
+    async ConfirmOrderButton(){
+        await this.ConfirmOrderContinue.click()
+
+    }
+    async ThanksContinueButton(){
+        await this.ThanksContinue.click()
+        
     }
 
 

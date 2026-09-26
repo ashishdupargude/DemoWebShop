@@ -1,0 +1,322 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: product.spec.ts >> Add book to cart
+- Location: tests\product.spec.ts:5:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('.button-1 payment-method-next-step-button')
+  - operation was aborted: Test timeout of 30000ms exceeded.
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f14e2]:
+  - generic [ref=f14e3]:
+    - generic [ref=f14e4]:
+      - link [ref=f14e6] [cursor=pointer]:
+        - /url: /
+        - img "Tricentis Demo Web Shop" [ref=f14e7]
+      - list [ref=f14e10]:
+        - listitem [ref=f14e11]:
+          - link "ashish.demotest2026@gmail.com" [ref=f14e12] [cursor=pointer]:
+            - /url: /customer/info
+        - listitem [ref=f14e13]:
+          - link "Log out" [ref=f14e14] [cursor=pointer]:
+            - /url: /logout
+        - listitem [ref=f14e15]:
+          - link "Shopping cart (16)" [ref=f14e16] [cursor=pointer]:
+            - /url: /cart
+            - generic [ref=f14e17]: Shopping cart
+            - generic [ref=f14e18]: (16)
+        - listitem [ref=f14e19]:
+          - link "Wishlist (0)" [ref=f14e20] [cursor=pointer]:
+            - /url: /wishlist
+            - generic [ref=f14e21]: Wishlist
+            - generic [ref=f14e22]: (0)
+      - generic [ref=f14e24]:
+        - status [ref=f14e25]
+        - textbox [ref=f14e26]: Search store
+        - button "Search" [ref=f14e27] [cursor=pointer]
+    - list [ref=f14e29]:
+      - listitem [ref=f14e30]:
+        - link "Books" [ref=f14e31] [cursor=pointer]:
+          - /url: /books
+      - listitem [ref=f14e32]:
+        - link "Computers" [ref=f14e33] [cursor=pointer]:
+          - /url: /computers
+      - listitem [ref=f14e34]:
+        - link "Electronics" [ref=f14e35] [cursor=pointer]:
+          - /url: /electronics
+      - listitem [ref=f14e36]:
+        - link "Apparel & Shoes" [ref=f14e37] [cursor=pointer]:
+          - /url: /apparel-shoes
+      - listitem [ref=f14e38]:
+        - link "Digital downloads" [ref=f14e39] [cursor=pointer]:
+          - /url: /digital-downloads
+      - listitem [ref=f14e40]:
+        - link "Jewelry" [ref=f14e41] [cursor=pointer]:
+          - /url: /jewelry
+      - listitem [ref=f14e42]:
+        - link "Gift Cards" [ref=f14e43] [cursor=pointer]:
+          - /url: /gift-cards
+    - generic [ref=f14e45]:
+      - heading "Checkout" [level=1] [ref=f14e47]
+      - list [ref=f14e49]:
+        - listitem [ref=f14e50]:
+          - generic [ref=f14e51] [cursor=pointer]:
+            - generic [ref=f14e52]: "1"
+            - heading "Billing address" [level=2] [ref=f14e53]
+            - text: .
+        - listitem [ref=f14e54]:
+          - generic [ref=f14e55] [cursor=pointer]:
+            - generic [ref=f14e56]: "2"
+            - heading "Shipping address" [level=2] [ref=f14e57]
+            - text: .
+        - listitem [ref=f14e58]:
+          - generic [ref=f14e59]:
+            - generic [ref=f14e60]: "3"
+            - heading "Shipping method" [level=2] [ref=f14e61]
+            - text: .
+        - listitem [ref=f14e62]:
+          - generic [ref=f14e63]:
+            - generic [ref=f14e64]: "4"
+            - heading "Payment method" [level=2] [ref=f14e65]
+            - text: .
+          - generic [ref=f14e66]:
+            - list [ref=f14e71]:
+              - listitem [ref=f14e72]:
+                - generic [ref=f14e73]:
+                  - img "Cash On Delivery (COD) (7.00)" [ref=f14e76]
+                  - generic [ref=f14e77]:
+                    - radio "Cash On Delivery (COD) (7.00) Cash On Delivery (COD) (7.00)" [checked] [ref=f14e78]
+                    - text: Cash On Delivery (COD) (7.00)
+              - listitem [ref=f14e79]:
+                - generic [ref=f14e80]:
+                  - img "Check / Money Order (5.00)" [ref=f14e83]
+                  - generic [ref=f14e84]:
+                    - radio "Check / Money Order (5.00) Check / Money Order (5.00)" [ref=f14e85]
+                    - text: Check / Money Order (5.00)
+              - listitem [ref=f14e86]:
+                - generic [ref=f14e87]:
+                  - img "Credit Card" [ref=f14e90]
+                  - generic [ref=f14e91]:
+                    - radio "Credit Card Credit Card" [ref=f14e92]
+                    - text: Credit Card
+              - listitem [ref=f14e93]:
+                - generic [ref=f14e94]:
+                  - img "Purchase Order" [ref=f14e97]
+                  - generic [ref=f14e98]:
+                    - radio "Purchase Order Purchase Order" [ref=f14e99]
+                    - text: Purchase Order
+            - generic [ref=f14e100]:
+              - paragraph [ref=f14e101]:
+                - link "Back" [ref=f14e102] [cursor=pointer]:
+                  - /url: "#"
+              - button "Continue" [ref=f14e103] [cursor=pointer]
+        - listitem [ref=f14e104]:
+          - generic [ref=f14e105]:
+            - generic [ref=f14e106]: "5"
+            - heading "Payment information" [level=2] [ref=f14e107]
+            - text: .
+        - listitem [ref=f14e108]:
+          - generic [ref=f14e109]:
+            - generic [ref=f14e110]: "6"
+            - heading "Confirm order" [level=2] [ref=f14e111]
+            - text: .
+  - generic [ref=f14e112]:
+    - generic [ref=f14e113]:
+      - generic [ref=f14e114]:
+        - heading "Information" [level=3] [ref=f14e115]
+        - list [ref=f14e116]:
+          - listitem [ref=f14e117]:
+            - link "Sitemap" [ref=f14e118] [cursor=pointer]:
+              - /url: /sitemap
+          - listitem [ref=f14e119]:
+            - link "Shipping & Returns" [ref=f14e120] [cursor=pointer]:
+              - /url: /shipping-returns
+          - listitem [ref=f14e121]:
+            - link "Privacy Notice" [ref=f14e122] [cursor=pointer]:
+              - /url: /privacy-policy
+          - listitem [ref=f14e123]:
+            - link "Conditions of Use" [ref=f14e124] [cursor=pointer]:
+              - /url: /conditions-of-use
+          - listitem [ref=f14e125]:
+            - link "About us" [ref=f14e126] [cursor=pointer]:
+              - /url: /about-us
+          - listitem [ref=f14e127]:
+            - link "Contact us" [ref=f14e128] [cursor=pointer]:
+              - /url: /contactus
+      - generic [ref=f14e129]:
+        - heading "Customer service" [level=3] [ref=f14e130]
+        - list [ref=f14e131]:
+          - listitem [ref=f14e132]:
+            - link "Search" [ref=f14e133] [cursor=pointer]:
+              - /url: /search
+          - listitem [ref=f14e134]:
+            - link "News" [ref=f14e135] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=f14e136]:
+            - link "Blog" [ref=f14e137] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=f14e138]:
+            - link "Recently viewed products" [ref=f14e139] [cursor=pointer]:
+              - /url: /recentlyviewedproducts
+          - listitem [ref=f14e140]:
+            - link "Compare products list" [ref=f14e141] [cursor=pointer]:
+              - /url: /compareproducts
+          - listitem [ref=f14e142]:
+            - link "New products" [ref=f14e143] [cursor=pointer]:
+              - /url: /newproducts
+      - generic [ref=f14e144]:
+        - heading "My account" [level=3] [ref=f14e145]
+        - list [ref=f14e146]:
+          - listitem [ref=f14e147]:
+            - link "My account" [ref=f14e148] [cursor=pointer]:
+              - /url: /customer/info
+          - listitem [ref=f14e149]:
+            - link "Orders" [ref=f14e150] [cursor=pointer]:
+              - /url: /customer/orders
+          - listitem [ref=f14e151]:
+            - link "Addresses" [ref=f14e152] [cursor=pointer]:
+              - /url: /customer/addresses
+          - listitem [ref=f14e153]:
+            - link "Shopping cart" [ref=f14e154] [cursor=pointer]:
+              - /url: /cart
+          - listitem [ref=f14e155]:
+            - link "Wishlist" [ref=f14e156] [cursor=pointer]:
+              - /url: /wishlist
+      - generic [ref=f14e157]:
+        - heading "Follow us" [level=3] [ref=f14e158]
+        - list [ref=f14e159]:
+          - listitem [ref=f14e160]:
+            - link "Facebook" [ref=f14e161] [cursor=pointer]:
+              - /url: http://www.facebook.com/nopCommerce
+          - listitem [ref=f14e162]:
+            - link "Twitter" [ref=f14e163] [cursor=pointer]:
+              - /url: https://twitter.com/nopCommerce
+          - listitem [ref=f14e164]:
+            - link "RSS" [ref=f14e165] [cursor=pointer]:
+              - /url: /news/rss/1
+          - listitem [ref=f14e166]:
+            - link "YouTube" [ref=f14e167] [cursor=pointer]:
+              - /url: http://www.youtube.com/user/nopCommerce
+          - listitem [ref=f14e168]:
+            - link "Google+" [ref=f14e169] [cursor=pointer]:
+              - /url: https://plus.google.com/+nopcommerce
+    - generic [ref=f14e170]:
+      - text: Powered by
+      - link "nopCommerce" [ref=f14e171] [cursor=pointer]:
+        - /url: http://www.nopcommerce.com/
+    - generic [ref=f14e172]: Copyright © 2026 Tricentis Demo Web Shop. All rights reserved.
+```
+
+# Test source
+
+```ts
+  1  | import { Locator, Page } from '@playwright/test'
+  2  | 
+  3  | export class ProductPage {
+  4  |     readonly page: Page
+  5  |     readonly Bookstab: Locator
+  6  |     readonly Selectbook: Locator
+  7  |     readonly Addtocart: Locator
+  8  |     readonly Selectshopingcart: Locator
+  9  |     readonly CountryDropDowm: Locator
+  10 |     readonly SelectCheckBox: Locator
+  11 |     readonly CheckoutButton: Locator
+  12 |     readonly BillingContinue: Locator
+  13 |     readonly InStorePickup: Locator
+  14 |     readonly ShippingContinue: Locator
+  15 |     readonly PaymentContinue: Locator
+  16 | 
+  17 | 
+  18 | 
+  19 | 
+  20 | 
+  21 | 
+  22 |     constructor(page: Page) {
+  23 |         this.page = page
+  24 |         //this.Bookstab = page.getByRole('link',{name:'BOOKS'})
+  25 |         this.Bookstab = page.getByRole('link', { name: 'Books', exact: true }).first()
+  26 |         this.Selectbook = page.getByRole('link', { name: 'Computing and Internet', exact: true })
+  27 |         this.Addtocart = page.locator('.button-1.add-to-cart-button')
+  28 |         this.Selectshopingcart = page.locator('.ico-cart').nth(0)
+  29 |         this.CountryDropDowm = page.getByLabel('Country')
+  30 |         this.SelectCheckBox = page.locator('#termsofservice').nth(0)
+  31 |         this.CheckoutButton = page.locator('.button-1.checkout-button')
+  32 |         this.BillingContinue = page.getByRole('button', { name: 'Continue', exact: true })
+  33 |         this.InStorePickup = page.getByRole('checkbox', { name: 'In-Store Pickup', exact: true })
+  34 |         this.ShippingContinue = page.getByRole('button', { name: 'Continue', exact: true })
+  35 |         this.PaymentContinue = page.locator('.button-1.payment-method-next-step-button')
+  36 | 
+  37 | 
+  38 |         // this.ContinueButton = page
+  39 |         //     .getByRole('listitem')
+  40 |         //     .filter({ has: page.getByRole('heading', { name: 'Payment method' }) })
+  41 |         //     .getByRole('button', { name: 'Continue', exact: true })
+  42 | 
+  43 | 
+  44 | 
+  45 | 
+  46 |     }
+  47 | 
+  48 |     async clickonBookslink() {
+  49 |         await this.Bookstab.click()
+  50 |     }
+  51 |     async clickonBook() {
+  52 |         await this.Selectbook.click()
+  53 | 
+  54 |     }
+  55 |     async clickAddToCart() {
+  56 |         await this.Addtocart.click()
+  57 | 
+  58 |     }
+  59 |     async clickOnShoppingCart() {
+  60 |         await this.Selectshopingcart.click()
+  61 | 
+  62 |     }
+  63 |     async selectCountry() {
+  64 |         await this.CountryDropDowm.selectOption({ label: 'India' })
+  65 |     }
+  66 |     async clickOnCheckBox() {
+  67 |         await this.SelectCheckBox.check()
+  68 | 
+  69 |     }
+  70 |     async clickOnCheckOutButton() {
+  71 |         await this.CheckoutButton.click()
+  72 |     }
+  73 |     async BillingContinueButton() {
+  74 |         await this.BillingContinue.click()
+  75 |     }
+  76 |     async ClickInStorePickup() {
+  77 |         await this.InStorePickup.check()
+  78 | 
+  79 |     }
+  80 |     async ShippingContinueButtonNew() {
+  81 |         await this.ShippingContinue.click()
+  82 |     }
+  83 |     async PaymentContinueButton(){
+> 84 |         await this.PaymentContinue.click()
+     |                                    ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  85 |     }
+  86 | 
+  87 | 
+  88 | 
+  89 | }
+```

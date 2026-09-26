@@ -26,10 +26,14 @@ test('Add book to cart', async ({ page }) => {
     await expect(page).toHaveURL(/onepagecheckout/)
 
     //CheckOutpage
-    await productPage.clickOnContinue()
+    await productPage.BillingContinueButton()
     await productPage.ClickInStorePickup()
-    await productPage.ContinueButtonNew()
-    //await productPage.ContinueButtonNew()
+    await productPage.ShippingContinueButtonNew()
+    await productPage.PaymentContinueButton()
+    await productPage.PaymentContinueInfoButton()
+    await productPage.ConfirmOrderButton()
+    await productPage.ThanksContinueButton()
+    await expect(page).toHaveURL('https://demowebshop.tricentis.com/')
 
 
 
