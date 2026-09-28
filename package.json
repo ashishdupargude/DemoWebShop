@@ -2,7 +2,10 @@
   "name": "demowebshop",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+     "test": "playwright test",
+    "allure:generate": "allure generate ./allure-results -o ./allure-report --clean"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -10,6 +13,6 @@
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.1",
-    "allure-playwright": "^3.12.2"
+    "allure-playwright": "^3.13.0"
   }
 }

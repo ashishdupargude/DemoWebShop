@@ -44,6 +44,7 @@ import { expect, test } from '@playwright/test'
 import { LoginPage } from '../page/LoginPage'
 import { ProductPage } from '../page/ProductPage'
 import { CheckoutPage } from '../page/CheckoutPage'
+import { loginData } from '../data/login-data'
 
 test('Add book to cart', async ({ page }) => {
 
@@ -53,8 +54,14 @@ test('Add book to cart', async ({ page }) => {
     const loginPage = new LoginPage(page)
 
     await loginPage.clickloginLink()
-    await loginPage.enterEmail('ashish.demotest2026@gmail.com')
-    await loginPage.enterPassword('DemoTest@2026')
+
+   // await loginPage.enterEmail('ashish.demotest2026@gmail.com')
+    // await loginPage.enterPassword('DemoTest@2026')
+
+    await loginPage.enterEmail(loginData.email)
+    await loginPage.enterPassword(loginData.password)
+    
+
     await loginPage.selectRemeberMe()
     await loginPage.clickOnLoginButton()
 
