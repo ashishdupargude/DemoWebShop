@@ -90,7 +90,7 @@
 //         await this.PaymentContinue.click()
 //     }
 //     async PaymentContinueInfoButton(){
-        
+
 //         await this.PaymentInfoContinue.click()
 //     }
 //     async ConfirmOrderButton(){
@@ -99,7 +99,7 @@
 //     }
 //     async ThanksContinueButton(){
 //         await this.ThanksContinue.click()
-        
+
 //     }
 
 
@@ -118,6 +118,7 @@ export class ProductPage {
     readonly CountryDropDowm: Locator
     readonly SelectCheckBox: Locator
     readonly CheckoutButton: Locator
+    readonly Jewelrytab: Locator
 
     constructor(page: Page) {
         this.page = page
@@ -140,7 +141,20 @@ export class ProductPage {
         this.SelectCheckBox = page.locator('#termsofservice').nth(0)
 
         this.CheckoutButton = page.locator('.button-1.checkout-button')
+
+        // this.Jewelrytab = page.getByRole('link', { name: 'Jewelry', exact: true })
+        // this.Jewelrytab = page.locator('a[href="/jewelry"]')
+this.Jewelrytab = page
+    .locator('ul.top-menu')
+    .getByRole('link', {
+        name: 'Jewelry',
+        exact: true
+    })
+
+
     }
+
+
 
     async clickonBookslink() {
         await this.Bookstab.click()
@@ -168,5 +182,10 @@ export class ProductPage {
 
     async clickOnCheckOutButton() {
         await this.CheckoutButton.click()
+    }
+
+    async clickonJewelrylink() {
+
+        await this.Jewelrytab.click()
     }
 }

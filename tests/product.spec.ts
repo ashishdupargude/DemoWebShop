@@ -55,12 +55,12 @@ test('Add book to cart', async ({ page }) => {
 
     await loginPage.clickloginLink()
 
-   // await loginPage.enterEmail('ashish.demotest2026@gmail.com')
+    // await loginPage.enterEmail('ashish.demotest2026@gmail.com')
     // await loginPage.enterPassword('DemoTest@2026')
 
     await loginPage.enterEmail(loginData.email)
     await loginPage.enterPassword(loginData.password)
-    
+
 
     await loginPage.selectRemeberMe()
     await loginPage.clickOnLoginButton()
@@ -97,3 +97,35 @@ test('Add book to cart', async ({ page }) => {
     // Homepage validation
     await expect(page).toHaveURL(/demowebshop\.tricentis\.com\/?$/)
 })
+
+
+test('Add jewelry to cart', async ({ page }) => {
+
+
+    // Jewelry flow
+    await page.goto('https://demowebshop.tricentis.com/')
+
+    // Login
+    const loginPage = new LoginPage(page)
+
+    await loginPage.clickloginLink()
+
+    // await loginPage.enterEmail('ashish.demotest2026@gmail.com')
+    // await loginPage.enterPassword('DemoTest@2026')
+
+    await loginPage.enterEmail(loginData.email)
+    await loginPage.enterPassword(loginData.password)
+
+
+    await loginPage.selectRemeberMe()
+    await loginPage.clickOnLoginButton()
+
+    // Product
+    const productPage = new ProductPage(page)
+
+    await productPage.clickonJewelrylink()
+
+
+})
+
+
