@@ -119,6 +119,8 @@ export class ProductPage {
     readonly SelectCheckBox: Locator
     readonly CheckoutButton: Locator
     readonly Jewelrytab: Locator
+    readonly JewellryAddtocart: Locator
+
 
     constructor(page: Page) {
         this.page = page
@@ -144,12 +146,8 @@ export class ProductPage {
 
         // this.Jewelrytab = page.getByRole('link', { name: 'Jewelry', exact: true })
         // this.Jewelrytab = page.locator('a[href="/jewelry"]')
-this.Jewelrytab = page
-    .locator('ul.top-menu')
-    .getByRole('link', {
-        name: 'Jewelry',
-        exact: true
-    })
+        this.Jewelrytab = page.locator('ul.top-menu').getByRole('link', { name: 'Jewelry', exact: true })
+        this.JewellryAddtocart = page.locator('.button-2.product-box-add-to-cart-button').nth(1)
 
 
     }
@@ -187,5 +185,9 @@ this.Jewelrytab = page
     async clickonJewelrylink() {
 
         await this.Jewelrytab.click()
+    }
+    async clickonJAddtoCart(){
+        await this.JewellryAddtocart.click()
+        
     }
 }

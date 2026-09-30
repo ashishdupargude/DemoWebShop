@@ -124,7 +124,22 @@ test('Add jewelry to cart', async ({ page }) => {
     const productPage = new ProductPage(page)
 
     await productPage.clickonJewelrylink()
+    await productPage.clickonJAddtoCart()
+    await productPage.clickOnShoppingCart()
+    await productPage.clickOnCheckBox()
+    await productPage.clickOnCheckOutButton()
+   
 
+     // Checkout
+    const checkoutPage = new CheckoutPage(page)
+
+    await checkoutPage.BillingContinueButton()
+    await checkoutPage.ClickInStorePickup()
+    await checkoutPage.ShippingContinueButtonNew()
+    await checkoutPage.PaymentContinueButton()
+    await checkoutPage.PaymentContinueInfoButton()
+    await checkoutPage.ConfirmOrderButton()
+    await checkoutPage.ThanksContinueButton()
 
 })
 
