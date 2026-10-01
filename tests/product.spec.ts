@@ -140,7 +140,29 @@ test('Add jewelry to cart', async ({ page }) => {
     await checkoutPage.PaymentContinueInfoButton()
     await checkoutPage.ConfirmOrderButton()
     await checkoutPage.ThanksContinueButton()
+   
 
 })
 
 
+test('Add computers to cart', async ({ page }) => {
+
+
+     // Jewelry flow
+    await page.goto('https://demowebshop.tricentis.com/')
+
+    // Login
+    const loginPage = new LoginPage(page)
+
+    await loginPage.clickloginLink()
+
+
+    const productPage = new ProductPage(page)
+    const checkoutPage = new CheckoutPage(page)
+
+
+ await productPage.clickonComputers()
+
+ await productPage.clickonDesktopTab()
+
+})

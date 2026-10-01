@@ -120,6 +120,9 @@ export class ProductPage {
     readonly CheckoutButton: Locator
     readonly Jewelrytab: Locator
     readonly JewellryAddtocart: Locator
+    readonly ComputerTab: Locator
+    readonly DesktopsTab: Locator
+
 
 
     constructor(page: Page) {
@@ -149,6 +152,8 @@ export class ProductPage {
         this.Jewelrytab = page.locator('ul.top-menu').getByRole('link', { name: 'Jewelry', exact: true })
         this.JewellryAddtocart = page.locator('.button-2.product-box-add-to-cart-button').nth(1)
 
+        this.ComputerTab = page.locator('.inactive').getByRole('link',{name:'Computers'})
+        this.DesktopsTab = page.locator('.sub-category-item').getByRole('link',{name:'Desktops'})
 
     }
 
@@ -189,5 +194,13 @@ export class ProductPage {
     async clickonJAddtoCart(){
         await this.JewellryAddtocart.click()
         
+    }
+
+    async clickonComputers(){
+
+        await this.ComputerTab.click()
+    }
+    async clickonDesktopTab(){
+        await this.DesktopsTab.click()
     }
 }
