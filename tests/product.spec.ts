@@ -128,9 +128,9 @@ test('Add jewelry to cart', async ({ page }) => {
     await productPage.clickOnShoppingCart()
     await productPage.clickOnCheckBox()
     await productPage.clickOnCheckOutButton()
-   
 
-     // Checkout
+
+    // Checkout
     const checkoutPage = new CheckoutPage(page)
 
     await checkoutPage.BillingContinueButton()
@@ -140,29 +140,86 @@ test('Add jewelry to cart', async ({ page }) => {
     await checkoutPage.PaymentContinueInfoButton()
     await checkoutPage.ConfirmOrderButton()
     await checkoutPage.ThanksContinueButton()
-   
+
 
 })
 
 
+// test('Add computers to cart', async ({ page }) => {
+
+
+//     // Jewelry flow
+//     await page.goto('https://demowebshop.tricentis.com/')
+
+//     // Login
+//     const loginPage = new LoginPage(page)
+
+//     await loginPage.clickloginLink()
+
+
+//     const productPage = new ProductPage(page)
+//     const checkoutPage = new CheckoutPage(page)
+
+
+//     await productPage.clickonComputers()
+
+//     await productPage.clickonDesktopTab()
+//     await productPage.clickOnSimpleComputer()
+//     await productPage.selectProcessor()
+
+//     await productPage.clickAddToCart()
+
+//     await productPage.clickOnCheckOutButton()
+
+//     // Checkout
+//     // const checkoutPage = new CheckoutPage(page)
+
+//     await checkoutPage.BillingContinueButton()
+//     await checkoutPage.ClickInStorePickup()
+//     await checkoutPage.ShippingContinueButtonNew()
+//     await checkoutPage.PaymentContinueButton()
+//     await checkoutPage.PaymentContinueInfoButton()
+//     await checkoutPage.ConfirmOrderButton()
+//     await checkoutPage.ThanksContinueButton()
+
+// })
+
+
 test('Add computers to cart', async ({ page }) => {
 
-
-     // Jewelry flow
     await page.goto('https://demowebshop.tricentis.com/')
 
     // Login
     const loginPage = new LoginPage(page)
 
     await loginPage.clickloginLink()
+    await loginPage.enterEmail(loginData.email)
+    await loginPage.enterPassword(loginData.password)
+    await loginPage.selectRemeberMe()
+    await loginPage.clickOnLoginButton()
 
-
+    // Product
     const productPage = new ProductPage(page)
     const checkoutPage = new CheckoutPage(page)
 
+    await productPage.clickonComputers()
+    await productPage.clickonDesktopTab()
+    await productPage.clickOnSimpleComputer()
+    await productPage.selectProcessor()
 
- await productPage.clickonComputers()
+    await productPage.clickAddToCart()
 
- await productPage.clickonDesktopTab()
+    // Shopping Cart
+    await productPage.clickOnShoppingCart()
+    await productPage.clickOnCheckBox()
+    await productPage.clickOnCheckOutButton()
 
+    // Checkout
+    await checkoutPage.BillingContinueButton()
+    await checkoutPage.ClickInStorePickup()
+    await checkoutPage.ShippingContinueButtonNew()
+    await checkoutPage.PaymentContinueButton()
+    await checkoutPage.PaymentContinueInfoButton()
+    await checkoutPage.ConfirmOrderButton()
+    await checkoutPage.ThanksContinueButton()
 })
