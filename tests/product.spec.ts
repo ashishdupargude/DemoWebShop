@@ -40,11 +40,12 @@
 // })
 
 
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../fixtures/hooks-fixtures'
 import { LoginPage } from '../page/LoginPage'
 import { ProductPage } from '../page/ProductPage'
 import { CheckoutPage } from '../page/CheckoutPage'
 import { loginData } from '../data/login-data'
+//import { Fixtures } from '@playwright/test'
 
 test('Add book to cart', async ({ page }) => {
 
@@ -185,22 +186,7 @@ test('Add jewelry to cart', async ({ page }) => {
 // })
 
 
-test('Add computers to cart', async ({ page }) => {
-
-    await page.goto('https://demowebshop.tricentis.com/')
-
-    // Login
-    const loginPage = new LoginPage(page)
-
-    await loginPage.clickloginLink()
-    await loginPage.enterEmail(loginData.email)
-    await loginPage.enterPassword(loginData.password)
-    await loginPage.selectRemeberMe()
-    await loginPage.clickOnLoginButton()
-
-    // Product
-    const productPage = new ProductPage(page)
-    const checkoutPage = new CheckoutPage(page)
+test('Add computers to cart', async ({ productPage, checkoutPage }) => {
 
     await productPage.clickonComputers()
     await productPage.clickonDesktopTab()
@@ -209,12 +195,10 @@ test('Add computers to cart', async ({ page }) => {
 
     await productPage.clickAddToCart()
 
-    // Shopping Cart
     await productPage.clickOnShoppingCart()
     await productPage.clickOnCheckBox()
     await productPage.clickOnCheckOutButton()
 
-    // Checkout
     await checkoutPage.BillingContinueButton()
     await checkoutPage.ClickInStorePickup()
     await checkoutPage.ShippingContinueButtonNew()
