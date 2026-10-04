@@ -218,9 +218,14 @@ export class ProductPage {
         await this.SimpleComputer.click()
     }
 
-    async selectProcessor() {
+    // async selectProcessor() {
 
-        await this.ProcessorSlow.check()
+    //     await this.ProcessorSlow.check()
 
-    }
+    // }
+
+    async selectProcessor(processor: string) {
+    await this.page.getByLabel(processor, { exact: true }).check()
+}
+
 }

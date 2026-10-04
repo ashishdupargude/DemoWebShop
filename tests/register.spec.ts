@@ -1,7 +1,9 @@
 import { test } from '@playwright/test'
+import { navigateTo } from '../utils/common-utils'
 test('RegisterUser ', async ({ page }) => {
 
-    await page.goto('https://demowebshop.tricentis.com/')
+    //await page.goto('https://demowebshop.tricentis.com/')
+    await navigateTo(page, 'https://demowebshop.tricentis.com/')
     await page.getByRole('link', { name: 'Register' }).click()
     await page.getByRole('radio', { name: 'Male', exact: true }).click()
     await page.getByRole('radio', { name: 'Female', exact: true }).click()

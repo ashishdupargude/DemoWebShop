@@ -45,6 +45,7 @@ import { LoginPage } from '../page/LoginPage'
 import { ProductPage } from '../page/ProductPage'
 import { CheckoutPage } from '../page/CheckoutPage'
 import { loginData } from '../data/login-data'
+import { productData } from '../data/product-data'
 //import { Fixtures } from '@playwright/test'
 
 test('Add book to cart', async ({ page }) => {
@@ -191,7 +192,8 @@ test('Add computers to cart', async ({ productPage, checkoutPage }) => {
     await productPage.clickonComputers()
     await productPage.clickonDesktopTab()
     await productPage.clickOnSimpleComputer()
-    await productPage.selectProcessor()
+    //await productPage.selectProcessor()
+    await productPage.selectProcessor(productData.processor)
 
     await productPage.clickAddToCart()
 
