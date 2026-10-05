@@ -48,10 +48,11 @@ import { loginData } from '../data/login-data'
 import { productData } from '../data/product-data'
 //import { Fixtures } from '@playwright/test'
 
-test('Add book to cart', async ({ page }) => {
+test('@smoke Add book to cart', async ({ page }) => {
 
-    await page.goto('https://demowebshop.tricentis.com/')
+   // await page.goto('https://demowebshop.tricentis.com/')
 
+   await page.goto('/')
     // Login
     const loginPage = new LoginPage(page)
 
@@ -101,11 +102,12 @@ test('Add book to cart', async ({ page }) => {
 })
 
 
-test('Add jewelry to cart', async ({ page }) => {
+test(' @regression Add jewelry to cart', async ({ page }) => {
 
 
     // Jewelry flow
-    await page.goto('https://demowebshop.tricentis.com/')
+  //  await page.goto('https://demowebshop.tricentis.com/')
+  await page.goto('/')
 
     // Login
     const loginPage = new LoginPage(page)
@@ -187,7 +189,7 @@ test('Add jewelry to cart', async ({ page }) => {
 // })
 
 
-test('Add computers to cart', async ({ productPage, checkoutPage }) => {
+test('@smoke Add computers to cart', async ({ productPage, checkoutPage }) => {
 
     await productPage.clickonComputers()
     await productPage.clickonDesktopTab()
@@ -197,7 +199,10 @@ test('Add computers to cart', async ({ productPage, checkoutPage }) => {
 
     await productPage.clickAddToCart()
 
+
     await productPage.clickOnShoppingCart()
+     // VERIFY: product was added to cart
+   // expect(await productPage.getShoppingCartCount()).toContain('1')
     await productPage.clickOnCheckBox()
     await productPage.clickOnCheckOutButton()
 
@@ -208,4 +213,5 @@ test('Add computers to cart', async ({ productPage, checkoutPage }) => {
     await checkoutPage.PaymentContinueInfoButton()
     await checkoutPage.ConfirmOrderButton()
     await checkoutPage.ThanksContinueButton()
+    
 })

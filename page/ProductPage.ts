@@ -124,6 +124,7 @@ export class ProductPage {
     readonly DesktopsTab: Locator
     readonly SimpleComputer: Locator
     readonly ProcessorSlow: Locator
+    readonly ShoppingCartCount: Locator
 
 
 
@@ -163,6 +164,7 @@ export class ProductPage {
           //this.ProcessorSlow = page.getByRole('radio', { name: 'Slow' }).nth(0)
 
         //this.ProcessorSlow = page.getByLabel('Slow', { exact: true })
+        this.ShoppingCartCount = page.locator('.cart-qty')
 
     }
 
@@ -227,5 +229,9 @@ export class ProductPage {
     async selectProcessor(processor: string) {
     await this.page.getByLabel(processor, { exact: true }).check()
 }
+async getShoppingCartCount() {
+    return await this.ShoppingCartCount.textContent()
+}
+
 
 }
