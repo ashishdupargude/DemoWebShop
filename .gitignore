@@ -17,3 +17,6 @@ test-results/
 
 # Node
 node_modules/
+
+# Authentication state
+auth/auth.json

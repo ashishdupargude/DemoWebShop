@@ -1,5 +1,12 @@
 import { test } from '@playwright/test'
 import { navigateTo } from '../utils/common-utils'
+
+test.use({
+    storageState: {
+        cookies: [],
+        origins: []
+    }
+})
 test('RegisterUser ', async ({ page }) => {
 
     //await page.goto('https://demowebshop.tricentis.com/')
