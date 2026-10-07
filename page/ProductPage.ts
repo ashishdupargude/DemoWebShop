@@ -155,13 +155,18 @@ export class ProductPage {
         this.Jewelrytab = page.locator('ul.top-menu').getByRole('link', { name: 'Jewelry', exact: true })
         this.JewellryAddtocart = page.locator('.button-2.product-box-add-to-cart-button').nth(1)
 
-        this.ComputerTab = page.locator('.inactive').getByRole('link', { name: 'Computers' })
+        //this.ComputerTab = page.locator('.inactive').getByRole('link', { name: 'Computers' })
+
+        this.ComputerTab = page.locator('a[href="/computers"]').first()
+
+        //this.ComputerTab = page.locator('ul.top-menu').getByRole('link', { name: 'Computers', exact: true })
+        
         //this.DesktopsTab = page.locator('.sub-category-item').getByRole('link',{name:'Desktops'})
 
         this.DesktopsTab = page.getByRole('link', { name: 'Desktops', description: 'Show products in category Desktops', exact: true })
         this.SimpleComputer = page.getByRole('link', { name: 'Simple Computer', exact: true })
         this.ProcessorSlow = page.locator('.option-list').getByRole('radio', { name: 'Slow' })
-          //this.ProcessorSlow = page.getByRole('radio', { name: 'Slow' }).nth(0)
+        //this.ProcessorSlow = page.getByRole('radio', { name: 'Slow' }).nth(0)
 
         //this.ProcessorSlow = page.getByLabel('Slow', { exact: true })
         this.ShoppingCartCount = page.locator('.cart-qty')
@@ -227,11 +232,11 @@ export class ProductPage {
     // }
 
     async selectProcessor(processor: string) {
-    await this.page.getByLabel(processor, { exact: true }).check()
-}
-async getShoppingCartCount() {
-    return await this.ShoppingCartCount.textContent()
-}
+        await this.page.getByLabel(processor, { exact: true }).check()
+    }
+    async getShoppingCartCount() {
+        return await this.ShoppingCartCount.textContent()
+    }
 
 
 }

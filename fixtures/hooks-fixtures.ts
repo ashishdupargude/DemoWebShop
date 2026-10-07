@@ -25,9 +25,9 @@ export const test = base.extend<Fixtures>({
         await use(loginPage)
     },
 
-    productPage: async ({ page,loginPage }, use) => {
-        await use(new ProductPage(page))
-    },
+   productPage: async ({ page }, use) => {
+    await use(new ProductPage(page))
+},
 
     checkoutPage: async ({ page }, use) => {
         await use(new CheckoutPage(page))
