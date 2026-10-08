@@ -26,6 +26,7 @@ export const test = base.extend<Fixtures>({
     },
 
    productPage: async ({ page }, use) => {
+    await page.goto('/')
     await use(new ProductPage(page))
 },
 

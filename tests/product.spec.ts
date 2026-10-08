@@ -48,28 +48,109 @@ import { loginData } from '../data/login-data'
 import { productData } from '../data/product-data'
 //import { Fixtures } from '@playwright/test'
 
-test('@smoke Add book to cart', async ({ page }) => {
+// test('@smoke Add book to cart', async ({ page }) => {
 
-   // await page.goto('https://demowebshop.tricentis.com/')
+//    // await page.goto('https://demowebshop.tricentis.com/')
 
-   await page.goto('/')
-    // Login
-    const loginPage = new LoginPage(page)
+//    await page.goto('/')
+//     // Login
+//     // const loginPage = new LoginPage(page)
 
-    await loginPage.clickloginLink()
+//     // await loginPage.clickloginLink()
 
-    // await loginPage.enterEmail('ashish.demotest2026@gmail.com')
-    // await loginPage.enterPassword('DemoTest@2026')
+//     // // await loginPage.enterEmail('ashish.demotest2026@gmail.com')
+//     // // await loginPage.enterPassword('DemoTest@2026')
 
-    await loginPage.enterEmail(loginData.email)
-    await loginPage.enterPassword(loginData.password)
+//     // await loginPage.enterEmail(loginData.email)
+//     // await loginPage.enterPassword(loginData.password)
 
 
-    await loginPage.selectRemeberMe()
-    await loginPage.clickOnLoginButton()
+//     // await loginPage.selectRemeberMe()
+//     // await loginPage.clickOnLoginButton()
+    
 
-    // Product
-    const productPage = new ProductPage(page)
+//     // Product
+//     const productPage = new ProductPage(page)
+
+//     await productPage.clickonBookslink()
+//     await productPage.clickonBook()
+//     await productPage.clickAddToCart()
+//     await productPage.clickOnShoppingCart()
+//     await productPage.selectCountry()
+//     await productPage.clickOnCheckBox()
+//     await productPage.clickOnCheckOutButton()
+
+//     // Checkout page validation
+//     await expect(
+//         page.getByRole('heading', { name: 'Checkout' })
+//     ).toBeVisible()
+
+//     await expect(page).toHaveURL(/onepagecheckout/)
+
+//     // Checkout
+//     const checkoutPage = new CheckoutPage(page)
+
+//     await checkoutPage.BillingContinueButton()
+//     await checkoutPage.ClickInStorePickup()
+//     await checkoutPage.ShippingContinueButtonNew()
+//     await checkoutPage.PaymentContinueButton()
+//     await checkoutPage.PaymentContinueInfoButton()
+//     await checkoutPage.ConfirmOrderButton()
+//     await checkoutPage.ThanksContinueButton()
+
+//     // Homepage validation
+//     await expect(page).toHaveURL(/demowebshop\.tricentis\.com\/?$/)
+// })
+
+
+// test(' @regression Add jewelry to cart', async ({ page }) => {
+
+
+//     // Jewelry flow
+//   //  await page.goto('https://demowebshop.tricentis.com/')
+//   await page.goto('/')
+
+//     // Login
+//     const loginPage = new LoginPage(page)
+
+//     await loginPage.clickloginLink()
+
+//     // await loginPage.enterEmail('ashish.demotest2026@gmail.com')
+//     // await loginPage.enterPassword('DemoTest@2026')
+
+//     await loginPage.enterEmail(loginData.email)
+//     await loginPage.enterPassword(loginData.password)
+
+
+//     await loginPage.selectRemeberMe()
+//     await loginPage.clickOnLoginButton()
+
+//     // Product
+//     const productPage = new ProductPage(page)
+
+//     await productPage.clickonJewelrylink()
+//     await productPage.clickonJAddtoCart()
+//     await productPage.clickOnShoppingCart()
+//     await productPage.clickOnCheckBox()
+//     await productPage.clickOnCheckOutButton()
+
+
+//     // Checkout
+//     const checkoutPage = new CheckoutPage(page)
+
+//     await checkoutPage.BillingContinueButton()
+//     await checkoutPage.ClickInStorePickup()
+//     await checkoutPage.ShippingContinueButtonNew()
+//     await checkoutPage.PaymentContinueButton()
+//     await checkoutPage.PaymentContinueInfoButton()
+//     await checkoutPage.ConfirmOrderButton()
+//     await checkoutPage.ThanksContinueButton()
+
+
+// })
+
+
+test('@smoke Add book to cart', async ({ productPage, checkoutPage }) => {
 
     await productPage.clickonBookslink()
     await productPage.clickonBook()
@@ -79,15 +160,11 @@ test('@smoke Add book to cart', async ({ page }) => {
     await productPage.clickOnCheckBox()
     await productPage.clickOnCheckOutButton()
 
-    // Checkout page validation
     await expect(
-        page.getByRole('heading', { name: 'Checkout' })
+        productPage.page.getByRole('heading', { name: 'Checkout' })
     ).toBeVisible()
 
-    await expect(page).toHaveURL(/onepagecheckout/)
-
-    // Checkout
-    const checkoutPage = new CheckoutPage(page)
+    await expect(productPage.page).toHaveURL(/onepagecheckout/)
 
     await checkoutPage.BillingContinueButton()
     await checkoutPage.ClickInStorePickup()
@@ -96,56 +173,6 @@ test('@smoke Add book to cart', async ({ page }) => {
     await checkoutPage.PaymentContinueInfoButton()
     await checkoutPage.ConfirmOrderButton()
     await checkoutPage.ThanksContinueButton()
-
-    // Homepage validation
-    await expect(page).toHaveURL(/demowebshop\.tricentis\.com\/?$/)
-})
-
-
-test(' @regression Add jewelry to cart', async ({ page }) => {
-
-
-    // Jewelry flow
-  //  await page.goto('https://demowebshop.tricentis.com/')
-  await page.goto('/')
-
-    // Login
-    const loginPage = new LoginPage(page)
-
-    await loginPage.clickloginLink()
-
-    // await loginPage.enterEmail('ashish.demotest2026@gmail.com')
-    // await loginPage.enterPassword('DemoTest@2026')
-
-    await loginPage.enterEmail(loginData.email)
-    await loginPage.enterPassword(loginData.password)
-
-
-    await loginPage.selectRemeberMe()
-    await loginPage.clickOnLoginButton()
-
-    // Product
-    const productPage = new ProductPage(page)
-
-    await productPage.clickonJewelrylink()
-    await productPage.clickonJAddtoCart()
-    await productPage.clickOnShoppingCart()
-    await productPage.clickOnCheckBox()
-    await productPage.clickOnCheckOutButton()
-
-
-    // Checkout
-    const checkoutPage = new CheckoutPage(page)
-
-    await checkoutPage.BillingContinueButton()
-    await checkoutPage.ClickInStorePickup()
-    await checkoutPage.ShippingContinueButtonNew()
-    await checkoutPage.PaymentContinueButton()
-    await checkoutPage.PaymentContinueInfoButton()
-    await checkoutPage.ConfirmOrderButton()
-    await checkoutPage.ThanksContinueButton()
-
-
 })
 
 
@@ -214,4 +241,21 @@ test('@smoke Add computers to cart', async ({ productPage, checkoutPage }) => {
     await checkoutPage.ConfirmOrderButton()
     await checkoutPage.ThanksContinueButton()
     
+})
+
+test('@regression Add jewelry to cart', async ({ productPage, checkoutPage }) => {
+
+    await productPage.clickonJewelrylink()
+    await productPage.clickonJAddtoCart()
+    await productPage.clickOnShoppingCart()
+    await productPage.clickOnCheckBox()
+    await productPage.clickOnCheckOutButton()
+
+    await checkoutPage.BillingContinueButton()
+    await checkoutPage.ClickInStorePickup()
+    await checkoutPage.ShippingContinueButtonNew()
+    await checkoutPage.PaymentContinueButton()
+    await checkoutPage.PaymentContinueInfoButton()
+    await checkoutPage.ConfirmOrderButton()
+    await checkoutPage.ThanksContinueButton()
 })
