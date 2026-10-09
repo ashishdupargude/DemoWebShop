@@ -67,7 +67,7 @@ import { productData } from '../data/product-data'
 
 //     // await loginPage.selectRemeberMe()
 //     // await loginPage.clickOnLoginButton()
-    
+
 
 //     // Product
 //     const productPage = new ProductPage(page)
@@ -151,11 +151,20 @@ import { productData } from '../data/product-data'
 
 
 test('@smoke Add book to cart', async ({ productPage, checkoutPage }) => {
-
     await productPage.clickonBookslink()
     await productPage.clickonBook()
     await productPage.clickAddToCart()
     await productPage.clickOnShoppingCart()
+
+    // Verify the book is in the cart before checkout
+    // Verify the book in the shopping cart table
+    await expect(
+        productPage.page.locator('.cart')
+            .getByRole('link', {
+                name: 'Computing and Internet',
+                exact: true
+            })
+    ).toBeVisible()
     await productPage.selectCountry()
     await productPage.clickOnCheckBox()
     await productPage.clickOnCheckOutButton()
@@ -173,6 +182,9 @@ test('@smoke Add book to cart', async ({ productPage, checkoutPage }) => {
     await checkoutPage.PaymentContinueInfoButton()
     await checkoutPage.ConfirmOrderButton()
     await checkoutPage.ThanksContinueButton()
+    await expect(
+        productPage.page.getByText('Your order has been successfully processed!')
+    ).toBeVisible()
 })
 
 
@@ -228,8 +240,8 @@ test('@smoke Add computers to cart', async ({ productPage, checkoutPage }) => {
 
 
     await productPage.clickOnShoppingCart()
-     // VERIFY: product was added to cart
-   // expect(await productPage.getShoppingCartCount()).toContain('1')
+    // VERIFY: product was added to cart
+    // expect(await productPage.getShoppingCartCount()).toContain('1')
     await productPage.clickOnCheckBox()
     await productPage.clickOnCheckOutButton()
 
@@ -240,7 +252,7 @@ test('@smoke Add computers to cart', async ({ productPage, checkoutPage }) => {
     await checkoutPage.PaymentContinueInfoButton()
     await checkoutPage.ConfirmOrderButton()
     await checkoutPage.ThanksContinueButton()
-    
+
 })
 
 test('@regression Add jewelry to cart', async ({ productPage, checkoutPage }) => {
