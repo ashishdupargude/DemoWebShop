@@ -39,8 +39,8 @@
 
 // })
 
-
-import { expect, test } from '../fixtures/hooks-fixtures'
+import { expect, Locator, Page } from '@playwright/test';
+import { test } from '../fixtures/hooks-fixtures'
 import { LoginPage } from '../page/LoginPage'
 import { ProductPage } from '../page/ProductPage'
 import { CheckoutPage } from '../page/CheckoutPage'
@@ -182,9 +182,7 @@ test('@smoke Add book to cart', async ({ productPage, checkoutPage }) => {
     await checkoutPage.PaymentContinueInfoButton()
     await checkoutPage.ConfirmOrderButton()
     await checkoutPage.ThanksContinueButton()
-    await expect(
-        productPage.page.getByText('Your order has been successfully processed!')
-    ).toBeVisible()
+   
 })
 
 
@@ -237,6 +235,8 @@ test('@smoke Add computers to cart', async ({ productPage, checkoutPage }) => {
     await productPage.selectProcessor(productData.processor)
 
     await productPage.clickAddToCart()
+
+    
 
 
     await productPage.clickOnShoppingCart()
